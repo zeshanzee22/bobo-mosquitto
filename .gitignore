@@ -1,5 +1,6 @@
 # Authentication credentials
 config/password.txt
+config/physical-pass.txt
 config/*.key
 config/*.crt
 config/*.pem
