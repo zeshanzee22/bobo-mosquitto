@@ -1,0 +1,15 @@
+# Authentication credentials
+config/password.txt
+config/*.key
+config/*.crt
+config/*.pem
+
+# Persistent MQTT data
+data/
+
+# Runtime logs
+log/
+*.log
+
+# Local configuration
+.env

@@ -1,0 +1,23 @@
+
+services:
+  mosquitto:
+    image: eclipse-mosquitto:2
+    container_name: bobo-mosquitto
+
+    restart: unless-stopped
+
+    ports:
+      # Local-only MQTT for initial validation.
+      # Will add public TLS :8883 separately.
+      - "127.0.0.1:1883:1883/tcp"
+
+    volumes:
+      - ./config/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+      - ./config/password.txt:/mosquitto/config/password.txt:ro
+      - ./data:/mosquitto/data
+
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
